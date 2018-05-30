@@ -15,7 +15,7 @@
 		"clean": "rimraf ./public/**/*",
 		"build:lint": "parallelshell 'yarn run eslint:js' 'yarn run eslint:scss' 'yarn run build:scss' 'yarn run build:js' 'yarn run copy:all'",
 		"build": "parallelshell 'yarn run clean' 'yarn run build:dir' 'yarn run build:scss' 'yarn run build:js' 'yarn run copy:all'",
-		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images",
+		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images",
 		"build:scss": "node-sass --output-style compressed ./views/index.scss > ./public/styles/index.css",
 		"build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js",
 		"watch:all": "parallelshell 'yarn run copy:all:watch'",
